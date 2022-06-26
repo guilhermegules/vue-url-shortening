@@ -10,30 +10,42 @@
       <ButtonComponent text="Shorten It!" big withBackground />
     </form>
 
-    <p>{{ url }} {{ shortenUrl }}</p>
+    <ShortenLinkCard
+      v-for="link in links"
+      :key="link.shortenUrl"
+      :originalLink="link.originalUrl"
+      :shortenLink="link.shortenUrl"
+    />
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import type { Link } from "../../models/LinkModel";
 import ButtonComponent from "../ButtonComponent.vue";
+import ShortenLinkCard from "./ShortenLinkCard.vue";
 import ShorteningUrlService from "../../services/ShorteningUrlService";
 
 export default defineComponent({
   components: {
     ButtonComponent,
+    ShortenLinkCard,
   },
   data() {
     return {
       url: "",
-      shortenUrl: "",
+      links: new Array<Link>(),
     };
   },
   methods: {
-    shorteningUrl(url: string) {
-      ShorteningUrlService.shorteningUrl(url).then((shortenUrlResponse) => {
-        this.shortenUrl = shortenUrlResponse.result.short_link;
+    async shorteningUrl(url: string) {
+      const shortenUrl = await ShorteningUrlService.shorteningUrl(url);
+
+      this.links.push({
+        originalUrl: this.url,
+        shortenUrl: shortenUrl.result.short_link,
+        copied: false,
       });
     },
   },
@@ -43,24 +55,22 @@ export default defineComponent({
 <style scoped>
 .shortening-form {
   width: 100%;
-  height: 100px;
-  background-image: url(/images/bg-shorten-desktop.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: var(--primary-dark-violet);
-  border-radius: 8px;
-  margin-bottom: 30px;
 }
 
 .shortening-form form {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+  height: 100px;
   width: 100%;
   gap: 20px;
   padding: 0 30px;
+  background-image: url(/images/bg-shorten-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--primary-dark-violet);
+  border-radius: 8px;
 }
 
 .shortening-form__field {

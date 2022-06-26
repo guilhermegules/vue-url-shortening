@@ -5,6 +5,7 @@
       'button--rounded': rounded,
       'button--big': big,
       'button--with-background': withBackground,
+      'button--with-dark-background': withDarkBackground,
     }"
   >
     {{ text }}
@@ -18,6 +19,7 @@ export default {
     rounded: Boolean,
     big: Boolean,
     withBackground: Boolean,
+    withDarkBackground: Boolean,
   },
 };
 </script>
@@ -49,5 +51,9 @@ export default {
 .button--with-background {
   background-color: var(--primary-cyan);
   color: var(--neutral-white);
+}
+
+.button--with-dark-background {
+  background-color: var(--primary-dark-violet);
 }
 </style>
