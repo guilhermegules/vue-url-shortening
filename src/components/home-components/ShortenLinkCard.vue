@@ -4,8 +4,8 @@
     <div>
       <p class="card__shorten-link">{{ shortenLink }}</p>
       <ButtonComponent
-        :text="copied ? 'Copied!' : 'Copy'"
-        :withDarkBackground="copied"
+        :text="isCopied ? 'Copied!' : 'Copy'"
+        :withDarkBackground="isCopied"
         withBackground
         @click="copy"
       />
@@ -22,10 +22,14 @@ export default defineComponent({
   props: {
     originalLink: String,
     shortenLink: String,
+    copied: Boolean,
+  },
+  beforeCreate() {
+    this.isCopied = this.copied;
   },
   data() {
     return {
-      copied: false,
+      isCopied: false,
     };
   },
   components: {
@@ -33,8 +37,13 @@ export default defineComponent({
   },
   methods: {
     copy() {
-      console.log("Copied");
-      this.copied = true;
+      this.isCopied = true;
+
+      navigator.clipboard.writeText(this.shortenLink ?? "");
+
+      setTimeout(() => {
+        this.isCopied = false;
+      }, 1000);
     },
   },
 });
