@@ -32,6 +32,7 @@ export default {
   align-items: center;
   position: relative;
   height: 600px;
+  background-color: var(--neutral-white);
 }
 
 .header__info {
@@ -50,9 +51,6 @@ export default {
 }
 
 .header__image {
-  max-width: 45%;
-  position: absolute;
-  right: -100px;
-  top: calc(100% - 475px);
+  /* TODO: adjust style */
 }
 </style>
