@@ -15,6 +15,7 @@
       :key="link.shortenUrl"
       :originalLink="link.originalUrl"
       :shortenLink="link.shortenUrl"
+      :copied="link.copied"
     />
   </section>
 </template>
@@ -54,7 +55,10 @@ export default defineComponent({
 
 <style scoped>
 .shortening-form {
-  width: 100%;
+  position: relative;
+  padding: 30px 50px 0;
+  background-color: var(--neutral-light-gray);
+  margin: 0 -50px;
 }
 
 .shortening-form form {
@@ -71,6 +75,9 @@ export default defineComponent({
   background-size: cover;
   background-color: var(--primary-dark-violet);
   border-radius: 8px;
+  position: absolute;
+  width: calc(100% - 100px);
+  top: -50px;
 }
 
 .shortening-form__field {
