@@ -62,9 +62,17 @@ export default {
 }
 
 .info__cards {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.info__cards .card:nth-child(2) {
+  margin-top: 20px;
+}
+
+.info__cards .card:nth-child(3) {
+  margin-top: 40px;
 }
 
 .info__boost {

@@ -8,11 +8,7 @@
       </h3>
       <ButtonComponent text="Get Started" big rounded withBackground />
     </div>
-    <img
-      class="header__image"
-      src="/images/illustration-working.svg"
-      alt="Men working on computer"
-    />
+    <img src="/images/illustration-working.svg" alt="Men working on computer" />
   </header>
 </template>
 
@@ -30,8 +26,9 @@ export default {
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
-  height: 600px;
+  height: 700px;
   background-color: var(--neutral-white);
 }
 
@@ -48,9 +45,5 @@ export default {
 .header__info h3 {
   color: var(--neutral-grayish-violet);
   margin-bottom: 20px;
-}
-
-.header__image {
-  /* TODO: adjust style */
 }
 </style>

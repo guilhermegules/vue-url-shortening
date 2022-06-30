@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
 .card {
-  width: 300px;
+  width: 100%;
   height: 300px;
   position: relative;
   background-color: var(--neutral-white);
