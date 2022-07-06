@@ -1,13 +1,19 @@
 <template>
   <section class="shortening-form">
-    <form @submit.prevent="shorteningUrl(url)">
+    <form data-testid="shortening-form" @submit.prevent="shorteningUrl(url)">
       <input
         type="text"
         class="shortening-form__field"
         placeholder="Shorten a link here..."
+        data-testid="shortening-input"
         v-model="url"
       />
-      <ButtonComponent text="Shorten It!" big withBackground />
+      <ButtonComponent
+        data-testid="shortening-button"
+        text="Shorten It!"
+        big
+        withBackground
+      />
     </form>
 
     <ShortenLinkCard
