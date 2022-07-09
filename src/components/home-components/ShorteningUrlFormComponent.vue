@@ -97,4 +97,17 @@ export default defineComponent({
 .shortening-form__field:focus {
   outline: 2px solid var(--primary-cyan);
 }
+
+@media screen and (max-width: 512px) {
+  .shortening-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 30px;
+  }
+
+  .shortening-form form button {
+    width: 100%;
+  }
+}
 </style>
