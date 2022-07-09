@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style scoped>
+@import "../assets/fade-in.css";
+
 .header {
   display: flex;
   align-items: center;
@@ -30,6 +32,7 @@ export default {
   position: relative;
   height: 700px;
   background-color: var(--neutral-white);
+  animation: fade-in-down 1s;
 }
 
 .header__info {
@@ -45,5 +48,34 @@ export default {
 .header__info h3 {
   color: var(--neutral-grayish-violet);
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 512px) {
+  .header {
+    flex-direction: column-reverse;
+    justify-content: space-around;
+  }
+
+  .header__info {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+
+  .header__info button {
+    width: 200px;
+  }
+
+  .header__info h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .header img {
+    width: 100%;
+  }
 }
 </style>
