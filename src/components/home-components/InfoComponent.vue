@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style scoped>
+@import "../../assets/fade-in.css";
+
 .info {
   text-align: center;
   padding: 200px 50px 0;
@@ -54,17 +56,20 @@ export default {
 
 .info__title {
   color: var(--primary-dark-violet);
+  animation: fade-in-right 1s;
 }
 
 .info__text {
   color: var(--neutral-grayish-violet);
   margin-bottom: 50px;
+  animation: fade-in-right 1s;
 }
 
 .info__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
+  animation: fade-in-right 1s;
 }
 
 .info__cards .card:nth-child(2) {
