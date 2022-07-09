@@ -54,4 +54,23 @@ p {
   justify-content: flex-end;
   gap: 20px;
 }
+
+@media screen and (max-width: 512px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.footer__icons {
+    display: flex;
+    flex-direction: row;
+  }
+}
 </style>

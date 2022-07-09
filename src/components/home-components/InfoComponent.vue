@@ -94,4 +94,11 @@ export default {
   color: var(--neutral-white);
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 512px) {
+  .info__cards {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>

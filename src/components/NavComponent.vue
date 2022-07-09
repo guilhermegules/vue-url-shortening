@@ -16,16 +16,18 @@
         @click="showMenu()"
       />
 
-      <div class="nav__menu-mobile" v-bind:class="{ 'fade-out': isVisible }">
-        <div>
-          <a href="">Features</a>
-          <a href="">Pricing</a>
-          <a href="">Resources</a>
-        </div>
+      <transition name="fade">
+        <div class="nav__menu-mobile" v-show="isVisible">
+          <div>
+            <a href="">Features</a>
+            <a href="">Pricing</a>
+            <a href="">Resources</a>
+          </div>
 
-        <ButtonComponent text="Login" />
-        <ButtonComponent withBackground rounded text="Sign Up" />
-      </div>
+          <ButtonComponent text="Login" />
+          <ButtonComponent withBackground rounded text="Sign Up" />
+        </div>
+      </transition>
     </div>
 
     <div class="nav__buttons">
@@ -86,11 +88,6 @@ export default defineComponent({
   display: none;
 }
 
-.fade-out {
-  opacity: 0;
-  transition: opacity 500ms linear;
-}
-
 .nav__sub-links a {
   color: var(--neutral-grayish-violet);
   text-decoration: none;
@@ -102,6 +99,16 @@ export default defineComponent({
 
 .nav__buttons > button:first-of-type {
   margin-right: 15px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media screen and (max-width: 512px) {
@@ -134,7 +141,6 @@ export default defineComponent({
     top: 65px;
     padding: 30px;
     border-radius: 15px;
-    transition: opacity 500ms linear;
   }
 
   .nav__menu-mobile button {
