@@ -11,7 +11,7 @@
 
       <img
         class="nav__menu-hamburger"
-        src="images/menu.svg"
+        src="/images/menu.svg"
         alt="menu icon"
         @click="showMenu()"
       />
