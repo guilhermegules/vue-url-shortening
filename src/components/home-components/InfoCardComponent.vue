@@ -56,4 +56,10 @@ export default {
 .card__text {
   color: var(--neutral-grayish-violet);
 }
+
+@media screen and (max-width: 512px) {
+  .card__image-container {
+    left: 120px;
+  }
+}
 </style>
