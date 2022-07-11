@@ -52,11 +52,14 @@ export default defineComponent({
 <style scoped>
 .card {
   width: 100%;
-  height: 40px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 30px 0;
+  background-color: var(--neutral-white);
+  border-radius: 5px;
+  margin-top: 45px;
+  padding: 15px;
 }
 
 .card div {
